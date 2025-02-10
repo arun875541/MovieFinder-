@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Finder Browser</title>
+  <script async src="https://cse.google.com/cse.js?cx=b6fc7e2e1bb3543c7"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0d0d0d;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #ffcc00;
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+    }
+    .gsc-control-cse{
+      background-color: black;
+    }
+    .gsc-control-cse.gsc-control-cse{
+  background-color: black;
+}
+    .gcse-search {
+      margin-top: 20px;
+      background-color: black;
+    }
+
+    input.gsc-input {
+      border: 2px solid #ffcc00 !important;
+      border-radius: 20px !important;
+      background-color: #222 !important;
+      color: #ffcc00 !important;
+      padding: 10px !important;
+      font-size: 16px;
+    }
+
+    button.gsc-search-button {
+      background-color: #ffcc00 !important;
+      color: black !important;
+      border-radius: 50% !important;
+    }
+
+    .site-list,
+    .category-list {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      background-color: #222;
+      text-align: left;
+    }
+
+    .site-list a,
+    .category-list a {
+      display: block;
+      padding: 8px 0;
+      color: #ffcc00;
+      text-decoration: none;
+    }
+
+    .site-list a:hover,
+    .category-list a:hover {
+      text-decoration: underline;
+    }
+
+    .category {
+      cursor: pointer;
+      padding: 10px;
+      background: #ffcc00;
+      color: black;
+      border-radius: 5px;
+      display: inline-block;
+      margin: 5px;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1 onclick="window.location.reload()">Movie Finder</h1>
+    <p>नीचे दी गई साइट्स से मूवी खोजें:</p>
+    <div class="gcse-search"></div>
+
+
+
+    <div class="category-list">
+      <h3>🎬 MOVIES NAME Categories:</h3>
+      <div class="category" onclick="toggleCategory('alien')">👽 Alien</div>
+      <div class="category" onclick="toggleCategory('robots')">🤖 Robots</div>
+      <div class="category" onclick="toggleCategory('space')">🚀 Space</div>
+      <div class="category" onclick="toggleCategory('time-travel')">⏳ Time Travel</div>
+      <div class="category" onclick="toggleCategory('adventure')">🏕️ Adventure</div>
+      <div class="category" onclick="toggleCategory('anime')">🎌 Anime</div>
+      <div class="category" onclick="toggleCategory('horror')">👻 Horror</div>
+      <div class="category" onclick="toggleCategory('superhero')">🦸 Superhero</div>
+      <div class="category" onclick="toggleCategory('sci-fi')">🚀 Sci-Fi</div>
+      <div class="category" onclick="toggleCategory('mystery')">🕵️ Mystery</div>
+    </div>
+    <div id="alien" class="hidden">
+      <h4>👽 Best Alien Movies:</h4>
+      <p>1. Alien (1979)</p>
+      <p>2. Aliens (1986)</p>
+      <p>3. Arrival (2016)</p>
+      <p>4. Predator (1987)</p>
+      <p>5. The Thing (1982)</p>
+      <p>6. Edge of Tomorrow (2014)</p>
+      <p>7. District 9 (2009)</p>
+      <p>8. Prometheus (2012)</p>
+      <p>9. Independence Day (1996)</p>
+      <p>10. War of the Worlds (2005)</p>
+      <p>11. Men in Black (1997)</p>
+      <p>12. E.T. the Extra-Terrestrial (1982)</p>
+      <p>13. The Faculty (1998)</p>
+      <p>14. Life (2017)</p>
+      <p>15. Cloverfield (2008)</p>
+      <p>16. The 5th Wave (2016)</p>
+      <p>17. Jupiter Ascending (2015)</p>
+      <p>18. Starship Troopers (1997)</p>
+      <p>19. Cowboys & Aliens (2011)</p>
+      <p>20. Paul (2011)</p>
+    </div>
+
+    <div id="robots" class="hidden">
+      <h4>🤖 Best Robot Movies:</h4>
+      <p>1. Terminator 2: Judgment Day (1991)</p>
+      <p>2. Ex Machina (2014)</p>
+      <p>3. I, Robot (2004)</p>
+      <p>4. A.I. Artificial Intelligence (2001)</p>
+      <p>5. The Matrix (1999)</p>
+      <p>6. Blade Runner (1982)</p>
+      <p>7. RoboCop (1987)</p>
+      <p>8. Wall-E (2008)</p>
+      <p>9. Chappie (2015)</p>
+      <p>10. Real Steel (2011)</p>
+      <p>11. Bicentennial Man (1999)</p>
+      <p>12. Automata (2014)</p>
+      <p>13. The Iron Giant (1999)</p>
+      <p>14. Upgrade (2018)</p>
+      <p>15. Pacific Rim (2013)</p>
+      <p>16. The Stepford Wives (2004)</p>
+      <p>17. Next Gen (2018)</p>
+      <p>18. A-X-L (2018)</p>
+      <p>19. Ghost in the Shell (2017)</p>
+      <p>20. Alita: Battle Angel (2019)</p>
+    </div>
+
+    <div id="space" class="hidden">
+      <h4>🚀 Best Space Movies:</h4>
+      <p>1. Interstellar (2014)</p>
+      <p>2. Gravity (2013)</p>
+      <p>3. The Martian (2015)</p>
+      <p>4. 2001: A Space Odyssey (1968)</p>
+      <p>5. Star Wars Series</p>
+      <p>6. Apollo 13 (1995)</p>
+      <p>7. Sunshine (2007)</p>
+      <p>8. Event Horizon (1997)</p>
+      <p>9. Europa Report (2013)</p>
+      <p>10. Ad Astra (2019)</p>
+      <p>11. Moon (2009)</p>
+      <p>12. Passengers (2016)</p>
+      <p>13. Armageddon (1998)</p>
+      <p>14. Deep Impact (1998)</p>
+      <p>15. The Last Starfighter (1984)</p>
+      <p>16. Space Cowboys (2000)</p>
+      <p>17. First Man (2018)</p>
+      <p>18. The Right Stuff (1983)</p>
+      <p>19. Cosmos (2019)</p>
+      <p>20. The Silent Sea (2021)</p>
+    </div>
+    <div id="time-travel" class="hidden">
+      <h4>⏳ Best Time Travel Movies:</h4>
+      <p>1. Back to the Future (1985)</p>
+      <p>2. Back to the Future Part II (1989)</p>
+      <p>3. Back to the Future Part III (1990)</p>
+      <p>4. Interstellar (2014)</p>
+      <p>5. Predestination (2014)</p>
+      <p>6. Tenet (2020)</p>
+      <p>7. The Time Machine (2002)</p>
+      <p>8. The Butterfly Effect (2004)</p>
+      <p>9. Looper (2012)</p>
+      <p>10. 12 Monkeys (1995)</p>
+      <p>11. Source Code (2011)</p>
+      <p>12. Edge of Tomorrow (2014)</p>
+      <p>13. Timecrimes (2007)</p>
+      <p>14. About Time (2013)</p>
+      <p>15. The Terminator (1984)</p>
+      <p>16. Terminator 2: Judgment Day (1991)</p>
+      <p>17. Project Almanac (2015)</p>
+      <p>18. Bill & Ted's Excellent Adventure (1989)</p>
+      <p>19. X-Men: Days of Future Past (2014)</p>
+      <p>20. Avengers: Endgame (2019)</p>
+    </div>
+    <div id="adventure" class="hidden">
+      <h4>🌍 Best Adventure Movies:</h4>
+      <p>1. Indiana Jones: Raiders of the Lost Ark (1981)</p>
+      <p>2. Indiana Jones and the Last Crusade (1989)</p>
+      <p>3. The Lord of the Rings: The Fellowship of the Ring (2001)</p>
+      <p>4. The Lord of the Rings: The Two Towers (2002)</p>
+      <p>5. The Lord of the Rings: The Return of the King (2003)</p>
+      <p>6. The Hobbit: An Unexpected Journey (2012)</p>
+      <p>7. The Hobbit: The Desolation of Smaug (2013)</p>
+      <p>8. The Hobbit: The Battle of the Five Armies (2014)</p>
+      <p>9. Jumanji (1995)</p>
+      <p>10. Jumanji: Welcome to the Jungle (2017)</p>
+      <p>11. Jumanji: The Next Level (2019)</p>
+      <p>12. Life of Pi (2012)</p>
+      <p>13. King Kong (2005)</p>
+      <p>14. Journey to the Center of the Earth (2008)</p>
+      <p>15. Jungle Cruise (2021)</p>
+      <p>16. Pirates of the Caribbean: The Curse of the Black Pearl (2003)</p>
+      <p>17. Pirates of the Caribbean: Dead Man’s Chest (2006)</p>
+      <p>18. Pirates of the Caribbean: At World's End (2007)</p>
+      <p>19. National Treasure (2004)</p>
+      <p>20. National Treasure: Book of Secrets (2007)</p>
+    </div>
+    <div id="anime" class="hidden">
+      <h4>🎭 Best Anime Movies:</h4>
+      <p>1. Spirited Away (2001)</p>
+      <p>2. Your Name (2016)</p>
+      <p>3. A Silent Voice (2016)</p>
+      <p>4. Grave of the Fireflies (1988)</p>
+      <p>5. Howl's Moving Castle (2004)</p>
+      <p>6. My Neighbor Totoro (1988)</p>
+      <p>7. Akira (1988)</p>
+      <p>8. Perfect Blue (1997)</p>
+      <p>9. Paprika (2006)</p>
+      <p>10. Ghost in the Shell (1995)</p>
+      <p>11. The Girl Who Leapt Through Time (2006)</p>
+      <p>12. Weathering with You (2019)</p>
+      <p>13. Princess Mononoke (1997)</p>
+      <p>14. Wolf Children (2012)</p>
+      <p>15. The Wind Rises (2013)</p>
+      <p>16. Redline (2009)</p>
+      <p>17. Summer Wars (2009)</p>
+      <p>18. Demon Slayer: Mugen Train (2020)</p>
+      <p>19. One Piece Film: Red (2022)</p>
+      <p>20. The Boy and the Beast (2015)</p>
+    </div>
+    <div id="horror" class="hidden">
+      <h4>👻 Best Horror Movies:</h4>
+      <p>1. The Conjuring (2013)</p>
+      <p>2. The Conjuring 2 (2016)</p>
+      <p>3. Annabelle (2014)</p>
+      <p>4. Annabelle: Creation (2017)</p>
+      <p>5. The Nun (2018)</p>
+      <p>6. The Exorcist (1973)</p>
+      <p>7. Insidious (2010)</p>
+      <p>8. Insidious: Chapter 2 (2013)</p>
+      <p>9. Insidious: The Last Key (2018)</p>
+      <p>10. Sinister (2012)</p>
+      <p>11. The Ring (2002)</p>
+      <p>12. Hereditary (2018)</p>
+      <p>13. It (2017)</p>
+      <p>14. It Chapter Two (2019)</p>
+      <p>15. A Nightmare on Elm Street (1984)</p>
+      <p>16. The Texas Chainsaw Massacre (1974)</p>
+      <p>17. Halloween (1978)</p>
+      <p>18. The Babadook (2014)</p>
+      <p>19. Paranormal Activity (2007)</p>
+      <p>20. The Grudge (2004)</p>
+    </div>
+    <div id="superhero" class="hidden">
+      <h4>🦸 Best Superhero Movies:</h4>
+      <p>1. The Dark Knight (2008)</p>
+      <p>2. The Dark Knight Rises (2012)</p>
+      <p>3. Joker (2019)</p>
+      <p>4. Batman Begins (2005)</p>
+      <p>5. Spider-Man: No Way Home (2021)</p>
+      <p>6. Avengers: Infinity War (2018)</p>
+      <p>7. Avengers: Endgame (2019)</p>
+      <p>8. Iron Man (2008)</p>
+      <p>9. Iron Man 2 (2010)</p>
+      <p>10. Iron Man 3 (2013)</p>
+      <p>11. Black Panther (2018)</p>
+      <p>12. Doctor Strange (2016)</p>
+      <p>13. Thor: Ragnarok (2017)</p>
+      <p>14. Captain America: Civil War (2016)</p>
+      <p>15. Deadpool (2016)</p>
+      <p>16. Deadpool 2 (2018)</p>
+      <p>17. Logan (2017)</p>
+      <p>18. X-Men: Days of Future Past (2014)</p>
+      <p>19. Guardians of the Galaxy (2014)</p>
+      <p>20. Wonder Woman (2017)</p>
+    </div>
+
+    <div id="sci-fi" class="hidden">
+      <h4>🚀 Top IMDb Rated Sci-Fi Movies:</h4>
+      <p>1. Interstellar (2014) - IMDb 8.7</p>
+      <p>2. Inception (2010) - IMDb 8.8</p>
+      <p>3. The Matrix (1999) - IMDb 8.7</p>
+      <p>4. The Prestige (2006) - IMDb 8.5</p>
+      <p>5. Blade Runner 2049 (2017) - IMDb 8.0</p>
+      <p>6. 2001: A Space Odyssey (1968) - IMDb 8.3</p>
+      <p>7. Arrival (2016) - IMDb 7.9</p>
+      <p>8. Dune (2021) - IMDb 8.0</p>
+      <p>9. Star Wars: The Empire Strikes Back (1980) - IMDb 8.7</p>
+      <p>10. The Martian (2015) - IMDb 8.0</p>
+      <p>11. Edge of Tomorrow (2014) - IMDb 7.9</p>
+      <p>12. Tenet (2020) - IMDb 7.3</p>
+      <p>13. Minority Report (2002) - IMDb 7.6</p>
+      <p>14. Ex Machina (2014) - IMDb 7.7</p>
+      <p>15. The Terminator (1984) - IMDb 8.1</p>
+      <p>16. Terminator 2: Judgment Day (1991) - IMDb 8.6</p>
+      <p>17. Avatar (2009) - IMDb 7.8</p>
+      <p>18. Gravity (2013) - IMDb 7.7</p>
+      <p>19. District 9 (2009) - IMDb 7.9</p>
+      <p>20. The Thing (1982) - IMDb 8.2</p>
+    </div>
+
+    <div id="mystery" class="hidden">
+      <h4>🔍 Best Mystery Movies:</h4>
+      <p>1. The Prestige (2006)</p>
+      <p>2. Memento (2000)</p>
+      <p>3. Shutter Island (2010)</p>
+      <p>4. Se7en (1995)</p>
+      <p>5. The Girl with the Dragon Tattoo (2011)</p>
+      <p>6. The Sixth Sense (1999)</p>
+      <p>7. Zodiac (2007)</p>
+      <p>8. Gone Girl (2014)</p>
+      <p>9. Knives Out (2019)</p>
+      <p>10. Prisoners (2013)</p>
+      <p>11. The Da Vinci Code (2006)</p>
+      <p>12. Angels & Demons (2009)</p>
+      <p>13. Sherlock Holmes (2009)</p>
+      <p>14. Sherlock Holmes: A Game of Shadows (2011)</p>
+      <p>15. The Others (2001)</p>
+      <p>16. The Invisible Guest (2016)</p>
+      <p>17. Oldboy (2003)</p>
+      <p>18. Mystic River (2003)</p>
+      <p>19. Mulholland Drive (2001)</p>
+      <p>20. The Game (1997)</p>
+    </div>
+  
+  <!-- Direct Download Button -->
+<button onclick="openDownloadPage()"> 🤩SPECIAL MOVIES 👈🏻</button>
+
+<script>
+    function openDownloadPage() {
+        window.open("downloads.html", "_blank"); // "downloads.html" को अपनी डाउनलोड पेज फाइल से बदल सकते हो
+    }
+</script>
+
+<style>
+    button {
+        background-color: #ffcc00;
+        color: black;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    button:hover {
+        background-color: #e6b800;
+    }
+</style>
+    <div class="site-list">
+      <h3>📌 Sites for Movies:</h3>
+      <a href="https://Vegamovies.by" target="_blank">Vegamovies.by</a>
+      <a href="https://Vegamovies1.my" target="_blank">Vegamovies1.my</a>
+      <a href="https://Vegamovies2.click" target="_blank">Vegamovies2.click</a>
+      <a href="https://Vegamoviesla.org" target="_blank">Vegamoviesla.org</a>
+      <a href="https://Vegamoviese.ink" target="_blank">Vegamoviese.ink</a>
+      <a href="https://Vegamovies-nl.sbs" target="_blank">Vegamovies-nl.sbs</a>
+      <a href="https://Vegamovies3.ltd" target="_blank">Vegamovies3.ltd</a>
+      <a href="https://filmyfly.pictures" target="_blank">Filmyfly.pictures</a>
+      <a href="https://filmywap.co.com" target="_blank">Filmywap.co.com</a>
+      <a href="https://kmmovies.club" target="_blank">Kmmovies.club</a>
+      <a href="https://themoviesflix.ph" target="_blank">Themoviesflix.ph</a>
+    </div>
+
+  </div>
+  </div>
+
+  <script>
+    function toggleCategory(categoryId) {
+      var categoryDiv = document.getElementById(categoryId);
+      if (categoryDiv.classList.contains("hidden")) {
+        categoryDiv.classList.remove("hidden");
+      } else {
+        categoryDiv.classList.add("hidden");
+      }
+    }
+
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        document.querySelector(".gsc-search-button").click();
+      }
+    });
+  </script>
+
+</body>
+
+</html>

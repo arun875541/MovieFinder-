@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #121212; color: white; text-align: center; }
+        .header { background-color: #ffcc00; padding: 10px; font-size: 24px; cursor: pointer; }
+        .container { padding: 20px; }
+        input[type="text"] { width: 60%; padding: 10px; border-radius: 5px; border: none; font-size: 16px; }
+        button { padding: 10px 15px; margin-left: 10px; font-size: 16px; border: none; border-radius: 5px; background-color: #ffcc00; cursor: pointer; }
+        .result { margin-top: 20px; font-size: 20px; color: #ffcc00; }
+        .link { display: block; margin-top: 10px; font-size: 18px; color: lightblue; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <div class="header" onclick="window.location.href='index.html';">🎬 Back to Home</div>
+
+    <div class="container">
+        <h2>🔎 Movie Search</h2>
+        <input type="text" id="searchInput" placeholder="Enter movie name...">
+        <button onclick="searchMovie()">Search</button>
+        <div class="result" id="resultBox"></div>
+    </div>
+
+    <script>
+        // Movie List with Download Links
+        const movies = {
+            "The Martian": "https://new1.filesdl.site/cloud/NrvPGSR3kfkzEDe",
+            "Interstellar": "https://new1.filesdl.site/cloud/OEbTxcQ5lB",
+           "Moana 2 ": "https://new1.filesdl.site/cloud/qGktZmMlrd",
+           "The wild robot": "https://new1.filesdl.site/cloud/sMF4mlyxzj",
+        };
+
+        function searchMovie() {
+            let movieName = document.getElementById("searchInput").value.trim().toLowerCase();
+            let resultBox = document.getElementById("resultBox");
+            resultBox.innerHTML = "";
+            let found = false;
+
+            if (movieName === "") {
+                resultBox.innerHTML = "❌ Please enter a movie name!";
+                return;
+            }
+
+            for (let key in movies) {
+                if (key.toLowerCase().includes(movieName)) {
+                    resultBox.innerHTML += `🎬 ${key} <br> <a class="link" href="${movies[key]}" target="_blank">📥 Download Link</a><br>`;
+                    found = true;
+                }
+            }
+
+            if (!found) {
+                resultBox.innerHTML = "🚫 No Result Found!";
+            }
+        }
+
+        // Press Enter to Search
+        document.getElementById("searchInput").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                searchMovie();
+            }
+        });
+    </script>
+
+</body>
+</html>
